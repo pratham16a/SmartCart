@@ -1,0 +1,51 @@
+/* #B9EDDD */
+/* #87CBB9 */
+/* #569DAA */
+/* #577D86 */
+
+body{
+    background-color: #b9eddd;
+    text-align: center;
+    font-family: 'Questrial', 'Sans-serif';
+}
+
+.intro-section{
+    background-color: #577D86;
+    padding: 20px;
+    color: white;
+}
+
+h5{
+    color: lightgray;
+}
+
+.custom-input{
+    width: 100%;
+    margin: 0;
+}
+.custom-button{
+    background-color: #569DAA;
+    color: white;
+    /* margin: auto; */
+}
+
+.login-section{
+    background-color: #87CBB9;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.register-section{
+    background-color: #87CBB9;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.custom-label{
+    text-align: left;
+    margin: 0;
+}
