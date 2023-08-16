@@ -5,12 +5,24 @@
     <p>Please log in to continue</p>
 </div>
 
-<div>
-    <form action="/login" method="post">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <button onclick="this.form.submit()">Login</button>
-    </form>
-    <form action="register" method="post"><button onclick="this.form.submit()">Register</button></form>
+<form action="/login" method="post">
+    <div class="login-section">
+
+            <div class="form-group mb-3">
+                <p class="custom-label">Email</p>
+                <input type="text" name="username" class="form-control custom-input">
+            </div>
+            <div class="form-group mb-3">
+                <p class="custom-label">Password</p>
+                <input type="password" name="password" class="form-control custom-input">
+            </div>
+            <button onclick="this.form.submit()" class="btn btn-lg custom-button">Login</button>
+    </div>
+</form>
+
+<div class="register-section">
+    <h3>New Here?</h3>
+    <form action="/register" method="post"><button onclick="this.form.submit()" class="btn btn-lg custom-button">Register Now!</button></form>
 </div>
+
 <%- include("footer") %>

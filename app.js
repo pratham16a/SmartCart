@@ -22,7 +22,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://127.0.0.1:27017/SmartCartDB");
+mongoose.connect("mongodb+srv://vyommkapur:"+ process.env.ATLASPSWD +"@cluster0.gvhgcxt.mongodb.net/SmartCartDB");
 connectionPromise = mongoose.connection.asPromise();
 connectionPromise.then(()=>{
 	console.log("connected to SmartCartDB");
@@ -108,7 +108,7 @@ app.post("/addItemToShoppingList", (req, res)=>{
 	User.findOneAndUpdate({username : req.session.passport.user}, {}).then(foundUser => {
 		const shoppingListItemX = new ShoppingListItem;
 		shoppingListItemX.shoppingListItem = req.body.shoppingListItem;
-		shoppingListItemX.save();
+		// shoppingListItemX.save();
 		foundUser.shoppingList.push(shoppingListItemX);
 		foundUser.save();
 	});
