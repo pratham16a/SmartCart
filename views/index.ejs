@@ -1,0 +1,16 @@
+<%- include("header") %>
+<div class="intro-section">
+    <h5>Welcome To</h5>
+    <h1>SmartCart</h1>
+    <p>Please log in to continue</p>
+</div>
+
+<div>
+    <form action="/login" method="post">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <button onclick="this.form.submit()">Login</button>
+    </form>
+    <form action="register" method="post"><button onclick="this.form.submit()">Register</button></form>
+</div>
+<%- include("footer") %>
