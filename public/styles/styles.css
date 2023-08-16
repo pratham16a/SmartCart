@@ -17,6 +17,13 @@ body{
 
 h5{
     color: lightgray;
+    font-size: small;
+    margin: 0;
+}
+
+h1{
+    font-size: 4rem;
+    margin: 0;
 }
 
 .custom-input{
