@@ -56,3 +56,135 @@ h1{
     text-align: left;
     margin: 0;
 }
+
+.shopping-list-item{
+    text-align: left;
+    /* margin-bottom: 20px; */
+}
+
+.shopping-list-hr{
+    width: 90%;
+    margin: 20px auto;
+}
+
+.shopping-list-p{
+    margin: 0;
+}
+
+.shopping-cart-hr{
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shopping-list{
+    margin: auto;
+    background-color: #87CBB9;
+    width: 80%;
+    max-height: 260px;  
+    padding: 20px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    /* overflow: auto; */
+    position: relative;
+    z-index: 1;
+}
+.shopping-list-scroll{
+    overflow: auto;
+    max-height: 175px;  
+}
+.shopping-list td{
+    padding: 0 10px;
+}
+
+.shopping-list-input{
+    background-color: #577D86;
+    border-radius: 10px;
+    color: white;
+    border-width: 0;
+    height: 40px;
+    padding: 3px;
+    margin-left: 0;
+    font-size: large;
+    margin-top: 10px;
+}
+
+.shopping-list button{
+    background-color: #569DAA;
+    color: white;
+    padding: 7px;
+    height: 40px;
+    margin-top: -2px;
+    border-radius: 10px;
+}
+
+.file-tab{
+    background-color: #577D86;
+    z-index: -1;
+    position: relative;
+    width: 40%;
+    padding: 2%;
+    top: 20px;
+    left: 10%;
+    border-radius: 5px;
+    color: white;
+}
+
+.input-div{
+    background-color: red;
+    padding: 0;
+}
+
+.shopping-cart{
+    margin: auto;
+    background-color: #87CBB9;
+    width: 80%;
+    max-height: 500px;  
+    padding: 20px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.shopping-cart-item{
+    /* background-color: red; */
+    /* padding: 5px; */
+    text-align: left;
+    margin-bottom : 10px;
+}
+
+.shopping-cart-item p{
+    margin: 0%;
+}
+
+#total-weight{
+    margin-top: 20px;
+}
+
+.cart-results{
+    background-color: #577D86;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+.user-header{
+    background-color: #577D86;
+    color: white;;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+.checkout-button{
+    background-color: #577D86;
+    color: white;
+    padding: 7px;
+    height: 40px;
+    margin-top: -2px;
+    border-radius: 10px;
+}

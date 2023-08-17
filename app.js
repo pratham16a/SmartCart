@@ -70,7 +70,6 @@ app.get("/secrets", function(req, res){
 	warningMessage = "Please login to start shopping";
 	if (req.isAuthenticated()){
 		User.find({username : req.session.passport.user}).then(foundUser => {
-			console.log(foundUser[0].shoppingList);
 			res.render("secrets", {
 				user : foundUser[0]
 			});
@@ -116,7 +115,7 @@ app.post("/login", (req, res)=>{
 });
 
 app.post("/addItemToShoppingList", (req, res)=>{
-	console.log("new item added is " + req.body.shoppingListItem);
+	// console.log("new item added is " + req.body.shoppingListItem);
 	User.findOneAndUpdate({username : req.session.passport.user}, {}).then(foundUser => {
 		const shoppingListItemX = new ShoppingListItem;
 		shoppingListItemX.shoppingListItem = req.body.shoppingListItem;
@@ -125,5 +124,24 @@ app.post("/addItemToShoppingList", (req, res)=>{
 		foundUser.save();
 	});
 	res.redirect("/secrets");
+});
+
+app.post("/deleteShoppingListItem", (req, res)=>{
+	User.findOneAndUpdate({username : req.session.passport.user}, {}).then(foundUser => {
+		var index = 0;
+		for (i = 0; i < foundUser.shoppingList.length; i++){
+			if (foundUser.shoppingList[i]._id == req.body.deleteShoppingListItemID){
+				index = i;
+			}
+			else {
+				// console.log("Object not found?????");
+			}
+		}
+		// console.log(index);
+		foundUser.shoppingList.splice(index, 1);
+		foundUser.save();
+		res.redirect("/secrets");
+	});
+	
 });
 
