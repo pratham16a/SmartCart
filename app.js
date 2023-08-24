@@ -10,6 +10,7 @@ const app = express();
 const http = require("http");
 const socketIo = require('socket.io');
 const cors = require("cors");
+const { default: test } = require("node:test");
 
 const port = process.env.PORT || 3000;
 var warningMessage = "Please login to start shopping"
@@ -29,7 +30,9 @@ app.use(passport.session());
 const cartData = new mongoose.Schema({
 	class_id: Number,
 	name: String,
-	quantity: String
+	quantity: Number,
+	price: Number,
+	weight: Number
 }, { collection: 'cart1' });
 
 const shoppingListItemSchema = new mongoose.Schema({
@@ -83,11 +86,33 @@ mongoose.connect("mongodb+srv://smartcart:" + process.env.CARTDATA + "@cluster0.
 			warningMessage = "Please login to start shopping";
 			if (req.isAuthenticated()){
 				User.find({username : req.session.passport.user}).then(foundUser => {
+					//Next chunk of code is only for testing front end
+					// console.log("inside User.find");
+					// async function testItems(){
+					// 	console.log("inside testItems");
+					// 	await Item.insertMany([
+					// 		{
+					// 			class_id : 5000,
+					// 			name : "testItem1",
+					// 			quantity : 999
+					// 		},
+					// 		{
+					// 			class_id : 9000,
+					// 			name : "testItem2",
+					// 			quantity: 999
+					// 		}
+					// 	]);
+					// 	console.log("Test Items saved?");
+					// }
+					// testItems();
+					//Test code chunk finished. Delete it if testing successful.
 					Item.find().then(foundItem => {
 						console.log(foundItem);
+						console.log(typeof(foundItem[0].price))
+						console.log(typeof(foundItem[0].quantity))
 						res.render("secrets", {
 							user : foundUser[0],
-							shoppingCart : foundItem
+							shoppingCart : foundItem //remember to change testArrayToSend to foundItem !!!!!!
 						});
 					});
 				});
@@ -182,6 +207,7 @@ mongoose.connect("mongodb+srv://smartcart:" + process.env.CARTDATA + "@cluster0.
 			io.emit('databaseInsert', change);
 		});
 		Item.watch([{ $match: {operationType: {$in: ['update']}}}], { fullDocument: "updateLookup"}).on('change', (change) => {
+			console.log(change);
 			io.emit('databaseUpdate', change);
 		});
 	})

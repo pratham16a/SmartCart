@@ -8,6 +8,21 @@ body{
     text-align: center;
     font-family: 'Questrial', 'Sans-serif';
 }
+.cart-table{
+    margin: 0;
+    padding: 0;
+}
+td{
+    padding: 2px 20px;
+    /* border-width: 2px;
+    border-style: dashed;
+    border-color: red; */
+    width: 100%;
+}
+
+.shopping-list-td{
+    width: auto;
+}
 
 .intro-section{
     background-color: #577D86;
@@ -72,7 +87,7 @@ h1{
 }
 
 .shopping-cart-hr{
-    /* width: 90%; */
+    width: 150%;
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: auto;
